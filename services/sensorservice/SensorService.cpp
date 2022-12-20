@@ -1937,7 +1937,7 @@ bool SensorService::canAccessSensor(const Sensor& sensor, const char* operation,
     bool noAssociatedPermission = (sensor.getRequiredPermission().length() <= 0);
 
     const int32_t opCode = sensor.getRequiredAppOp();
-    const int32_t appOpMode = sAppOpsManager.checkOp(opCode,
+    const int32_t appOpMode = sAppOpsManager.noteOp(opCode,
             IPCThreadState::self()->getCallingUid(), opPackageName);
     bool appOpAllowed = (appOpMode == AppOpsManager::MODE_ALLOWED);
 
